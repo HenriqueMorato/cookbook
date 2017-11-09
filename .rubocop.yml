@@ -20,5 +20,10 @@ AllCops:
     - 'Gemfile'
   UseCache: false
   TargetRailsVersion: 5.1
+Metrics/BlockLength:
+  Exclude:
+    - 'Rakefile'
+    - '**/*.rake'
+    - 'spec/**/*.rb'
 Documentation:
   Enabled: false
