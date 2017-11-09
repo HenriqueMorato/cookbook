@@ -1,4 +1,6 @@
 <h1>CookBook</h1>
 <p>Bem-vindo ao maior livro de receitas online</p>
 
-<%= render partial: "recipes/recipe", collection: @recipes %>
+<% @recipes.each do |recipe| %>
+    <%= render partial: "recipes/recipe_link", locals: {recipe: recipe} %>
+<% end %>

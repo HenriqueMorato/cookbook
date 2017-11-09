@@ -1,7 +1,10 @@
 <h1><%= recipe.title %></h1>
-<ul>
-    <li><%= recipe.recipe_type %></li>
-    <li><%= recipe.cuisine %></li>
-    <li><%= recipe.difficulty %></li>
-    <li><%= recipe.cook_time %> minutos</li>
-</ul>
+<h3>Detalhes</h3>
+<p><%= recipe.recipe_type %></p>
+<p><%= recipe.cuisine %></p>
+<p><%= recipe.difficulty %></p>
+<p><%= recipe.cook_time %> minutos</p>
+<h3>Ingredientes</h3>
+<p><%= recipe.ingredients %></p>
+<h3>Como Preparar</h3>
+<p><%= recipe.method %></p>
