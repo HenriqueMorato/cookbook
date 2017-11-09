@@ -1,7 +1,7 @@
 <%= simple_form_for(@recipe, html: { class: 'form-horizontal' }) do |f| %>
     <%= f.input :title %>
     <%= f.input :recipe_type %>
-    <%= f.input :cuisine %>
+    <%= f.input :cuisine_id, collection: @cuisines %>
     <%= f.input :difficulty %>
     <%= f.input :cook_time %>
     <%= f.input :ingredients %>

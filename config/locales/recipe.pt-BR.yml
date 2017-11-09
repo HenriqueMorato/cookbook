@@ -6,7 +6,7 @@ pt-BR:
       recipe:
         title: "Título"
         recipe_type: 'Tipo da Receita'
-        cuisine: 'Cozinha'
+        cuisine_id: 'Cozinha'
         difficulty: 'Dificuldade'
         cook_time: 'Tempo de Preparo'
         ingredients: 'Ingredientes'
