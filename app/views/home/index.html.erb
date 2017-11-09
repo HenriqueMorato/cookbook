@@ -3,6 +3,8 @@
 
 <%= link_to t('simple_form.buttons.register_recipe'), new_recipe_path %>
 
+<%= render @cuisines %>
+
 <% @recipes.each do |recipe| %>
-    <%= render partial: "recipes/recipe_link", locals: {recipe: recipe} %>
+  <%= render partial: "recipes/recipe_link", locals: {recipe: recipe} %>
 <% end %>
