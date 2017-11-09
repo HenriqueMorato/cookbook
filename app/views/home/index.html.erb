@@ -1,6 +1,8 @@
 <h1>CookBook</h1>
 <p>Bem-vindo ao maior livro de receitas online</p>
 
+<%= link_to t('simple_form.buttons.register_recipe'), new_recipe_path %>
+
 <% @recipes.each do |recipe| %>
     <%= render partial: "recipes/recipe_link", locals: {recipe: recipe} %>
 <% end %>

@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    models:
+      recipe: Receita
+    attributes:
+      recipe:
+        title: "Título"
+        recipe_type: 'Tipo da Receita'
+        cuisine: 'Cozinha'
+        difficulty: 'Dificuldade'
+        cook_time: 'Tempo de Preparo'
+        ingredients: 'Ingredientes'
+        method: 'Como Preparar'
