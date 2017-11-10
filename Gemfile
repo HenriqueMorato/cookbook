@@ -43,7 +43,7 @@ group :development, :test do
   gem 'capybara'
   gem 'factory_bot_rails'
   gem 'rubocop', require: false
-  gem 'sqlite3'
+  
 end
 
 group :test do
