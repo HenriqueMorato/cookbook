@@ -1,5 +1,5 @@
 language: ruby
 script:
-  - bundle exec rubocop
+  #- bundle exec rubocop
 rvm:
   - 2.3.4

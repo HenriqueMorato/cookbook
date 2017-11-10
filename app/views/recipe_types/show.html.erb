@@ -1,0 +1,9 @@
+<h1><%= @recipe_type.name %></h1>
+
+<% if @recipe_type.recipes.empty? %>
+  <p>Nenhuma receita encontrada para este tipo de receitas</p>
+<% end %>
+
+<% @recipe_type.recipes.each do |recipe| %>
+  <%= render partial: "recipes/recipe_link", locals: {recipe: recipe} %>
+<% end %>

@@ -5,6 +5,7 @@
 <%= link_to t('simple_form.buttons.register_cuisine'), new_cuisine_path %>
 
 <%= render @cuisines %>
+<%= render @recipe_types %>
 
 <% @recipes.each do |recipe| %>
   <%= render partial: "recipes/recipe_link", locals: {recipe: recipe} %>
