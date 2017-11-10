@@ -1,0 +1,6 @@
+<h1>Cadastre uma Tipo de Receita</h1>
+
+<%= simple_form_for(@recipe_type, html: { class: 'form-horizontal' }) do |f| %>
+  <%= f.input :name %>
+  <%= f.submit t('simple_form.buttons.submit') %>
+<% end %>

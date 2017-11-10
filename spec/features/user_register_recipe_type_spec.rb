@@ -16,6 +16,6 @@ feature 'User register recipe_jype' do
     fill_in 'Nome', with: ''
     click_on 'Enviar'
 
-    expect(page).to have_content('Você deve informar o nome do tipo de receita')
+    expect(page).to have_content('Você deve informar o Nome da(o) Tipo de Receita')
   end
 end
