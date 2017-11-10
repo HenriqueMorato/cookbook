@@ -43,7 +43,7 @@ group :development, :test do
   gem 'capybara'
   gem 'factory_bot_rails'
   gem 'rubocop', require: false
-  
+  gem 'sqlite3'
 end
 
 group :test do
@@ -61,7 +61,6 @@ end
 
 group :production do
   gem 'pg'
-  gem 'rails_12factor'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

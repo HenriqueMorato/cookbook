@@ -3,6 +3,7 @@ AllCops:
     - '**/Rakefile'
     - '**/config.ru'
   Exclude:
+    - 'vendor/**/*'
     - 'db/**/*'
     - 'script/**/*'
     - 'spec/rails_helper.rb'
