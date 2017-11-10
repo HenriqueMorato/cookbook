@@ -15,7 +15,7 @@ feature 'Visitor visit homepage' do
     recipe = Recipe.create(title: 'Bolo de cenoura', recipe_type: recipe_type,
                           cuisine: cuisine, difficulty: 'Médio', 
                           ingredients: 'Cenoura, acucar, oleo e chocolate',
-                          method: 'Misturar tudo, bater e assar',
+                          cook_method: 'Misturar tudo, bater e assar',
                           cook_time: 60)
 
     # simula a ação do usuário
@@ -36,14 +36,14 @@ feature 'Visitor visit homepage' do
     recipe = Recipe.create(title: 'Bolo de cenoura', recipe_type: recipe_type,
                           cuisine: cuisine, difficulty: 'Médio',
                           ingredients: 'Cenoura, acucar, oleo e chocolate',
-                          method: 'Misturar tudo, bater e assar',
+                          cook_method: 'Misturar tudo, bater e assar',
                           cook_time: 60)
 
     another_recipe_type = RecipeType.create(name: 'Prato Principal')
     another_recipe = Recipe.create(title: 'Feijoada', recipe_type: another_recipe_type,
                           cuisine: cuisine, difficulty: 'Difícil',
                           ingredients: 'Feijao, paio, carne seca',
-                          method: 'Cozinhar o feijao e refogar com as carnes já preparadas',
+                          cook_method: 'Cozinhar o feijao e refogar com as carnes já preparadas',
                           cook_time: 90)
 
     # simula a ação do usuário

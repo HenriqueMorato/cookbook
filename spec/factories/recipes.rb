@@ -1,9 +1,12 @@
 FactoryBot.define do
   factory :recipe do
     title "MyString"
-    recipe_type "MyString"
-    cuisine "MyString"
     difficulty "MyString"
     cook_time 1
+    ingredients 'MyString'
+    cook_method 'MyString'
+    
+    recipe_type
+    cuisine
   end
 end

@@ -1,21 +1,32 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: [:show]
+  before_action :set_recipe, only: %i[show edit update]
   def show; end
 
   def new
+    recipe_eager_load
     @recipe = Recipe.new
-    @cuisines = Cuisine.all
-    @recipe_types = RecipeType.all
   end
 
   def create
     @recipe = Recipe.new(recipe_params)
     if @recipe.save
-      redirect_to recipe_path @recipe
+      redirect_to @recipe
     else
-      @cuisines = Cuisine.all
-      @recipe_types = RecipeType.all
+      recipe_eager_load
       render :new
+    end
+  end
+
+  def edit
+    recipe_eager_load
+  end
+
+  def update
+    if @recipe.update(recipe_params)
+      redirect_to @recipe
+    else
+      recipe_eager_load
+      render :edit
     end
   end
 
@@ -29,6 +40,11 @@ class RecipesController < ApplicationController
     params.require(:recipe).permit(:title, :recipe_type_id,
                                    :cuisine_id, :difficulty,
                                    :cook_time, :ingredients,
-                                   :method)
+                                   :cook_method)
+  end
+
+  def recipe_eager_load
+    @recipe_types = RecipeType.all    
+    @cuisines = Cuisine.all
   end
 end

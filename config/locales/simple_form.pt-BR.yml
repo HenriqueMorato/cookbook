@@ -13,7 +13,9 @@ pt-BR:
       default_message: "Please review the problems below:"
     buttons:
       register_recipe: 'Enviar uma receita'
-      register_cuisine: 'Criar uma Cozinha'      
+      register_cuisine: 'Criar uma Cozinha'
+      register_recipe_type: 'Criar um Tipo de Receita'      
+      edit_recipe: 'Editar esta receita'
       submit: 'Enviar'
     # Examples
     # labels:

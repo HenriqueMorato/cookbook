@@ -10,4 +10,4 @@ pt-BR:
         difficulty: 'Dificuldade'
         cook_time: 'Tempo de Preparo'
         ingredients: 'Ingredientes'
-        method: 'Como Preparar'
+        cook_method: 'Como Preparar'
