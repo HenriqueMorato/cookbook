@@ -18,4 +18,13 @@ feature 'User register cuisine' do
 
     expect(page).to have_content('Você deve informar o Nome da(o) Cozinha')
   end
+
+  scenario 'and is unique' do
+    create(:cuisine, name: 'Italiana')
+    visit new_cuisine_path
+    fill_in 'Nome', with: 'Italiana'
+    click_on 'Enviar'
+    
+    expect(page).to have_content('já existe um(a) Cozinha com este nome')    
+  end
 end
