@@ -17,6 +17,7 @@ pt-BR:
       register_recipe_type: 'Criar um Tipo de Receita'      
       edit_recipe: 'Editar esta receita'
       submit: 'Enviar'
+      cancel: 'Cancelar'
     # Examples
     # labels:
     #   defaults:

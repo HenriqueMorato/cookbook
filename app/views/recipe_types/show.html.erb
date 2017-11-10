@@ -7,3 +7,5 @@
 <% @recipe_type.recipes.each do |recipe| %>
   <%= render partial: "recipes/recipe_link", locals: {recipe: recipe} %>
 <% end %>
+
+<%= link_to t('simple_form.back'), root_path %>
