@@ -44,7 +44,7 @@ class RecipesController < ApplicationController
   end
 
   def recipe_eager_load
-    @recipe_types = RecipeType.all    
+    @recipe_types = RecipeType.all
     @cuisines = Cuisine.all
   end
 end

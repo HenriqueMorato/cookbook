@@ -3,11 +3,11 @@ require 'rails_helper'
 feature 'Visitor register recipe' do
   scenario 'successfully' do
     #cria os dados necessários, nesse caso não vamos criar dados no banco
-    Cuisine.create(name: 'Arabe')
-    RecipeType.create(name: 'Entrada')
-    RecipeType.create(name: 'Prato Principal')
-    RecipeType.create(name: 'Sobremesa')
-    # simula a ação do usuário
+    create(:cuisine, name: 'Arabe')
+    create(:recipe_type, name: 'Entrada')
+    create(:recipe_type, name: 'Prato Principal')
+    create(:recipe_type, name: 'Sobremesa')
+
     visit root_path
     click_on 'Enviar uma receita'
 
@@ -34,9 +34,6 @@ feature 'Visitor register recipe' do
   end
 
   scenario 'and must fill in all fields' do
-    #cria os dados necessários, nesse caso não vamos criar dados no banco
-    Cuisine.create(name: 'Arabe')
-    # simula a ação do usuário
     visit root_path
     click_on 'Enviar uma receita'
 
