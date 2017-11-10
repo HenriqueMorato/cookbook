@@ -1,6 +1,9 @@
 <%= simple_form_for(@recipe, html: { class: 'form-horizontal' }) do |f| %>
+    <% if f.object.errors.any? %>
+      <p>Você deve informar todos os dados da receita</p>
+    <% end %>
     <%= f.input :title %>
-    <%= f.input :recipe_type %>
+    <%= f.input :recipe_type_id, collection: @recipe_types %>
     <%= f.input :cuisine_id, collection: @cuisines %>
     <%= f.input :difficulty %>
     <%= f.input :cook_time %>

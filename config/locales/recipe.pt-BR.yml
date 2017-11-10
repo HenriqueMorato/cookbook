@@ -5,7 +5,7 @@ pt-BR:
     attributes:
       recipe:
         title: "Título"
-        recipe_type: 'Tipo da Receita'
+        recipe_type_id: 'Tipo da Receita'
         cuisine_id: 'Cozinha'
         difficulty: 'Dificuldade'
         cook_time: 'Tempo de Preparo'
