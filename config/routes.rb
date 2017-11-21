@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root to: 'home#index'
   resources :recipes, only: %i[show new create edit update]
   resources :cuisines, only: %i[show new create]

@@ -29,7 +29,7 @@ feature 'Visitor view recipe details' do
   scenario 'and return to recipe list' do
     cuisine = create(:cuisine, name: 'Brasileira')
     recipe_type = create(:recipe_type, name: 'Sobremesa')
-    recipe = Recipe.create(title: 'Bolo de cenoura', recipe_type:  recipe_type,
+    recipe = create(:recipe, title: 'Bolo de cenoura', recipe_type:  recipe_type,
                           cuisine: cuisine, difficulty: 'Médio',
                           cook_time: 60,
                           ingredients: 'Farinha, açucar, cenoura',

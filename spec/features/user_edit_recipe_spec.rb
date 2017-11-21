@@ -2,10 +2,13 @@ require 'rails_helper'
 
 feature 'User edit recipe' do
   scenario 'successfully' do
+    user = create(:user)
     cuisine = create(:cuisine, name: 'Americana')
     recipe_type = create(:recipe_type, name: 'Prato Principal')    
     recipe = create(:recipe, title: 'Empadão Goiano', 
-                    cuisine: cuisine, recipe_type: recipe_type)
+                    cuisine: cuisine, recipe_type: recipe_type, user: user)
+
+    login_as(user, scope: :user)
     visit root_path
     click_on recipe.title
     click_on 'Editar esta receita'
@@ -31,7 +34,10 @@ feature 'User edit recipe' do
     expect(page).to have_css('p', text:  'Misturar tudo e servir. Adicione limão a gosto.')
   end
   scenario 'and must fill in all fields' do
-    recipe = create(:recipe, title: 'Empadão Goiano')    
+    user = create(:user)
+    recipe = create(:recipe, title: 'Empadão Goiano', user: user)  
+
+    login_as(user, scope: :user)  
     visit edit_recipe_path recipe
 
     fill_in 'Título', with: ''
@@ -43,5 +49,13 @@ feature 'User edit recipe' do
 
 
     expect(page).to have_content('Você deve informar todos os dados da receita')
+  end
+  scenario 'and is not his recipe' do
+    user = create(:user)
+    recipe = create(:recipe)
+    login_as(user, scope: :user)  
+    visit edit_recipe_path recipe
+
+    expect(current_path).to eq root_path
   end
 end
