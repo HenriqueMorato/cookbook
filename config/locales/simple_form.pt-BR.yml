@@ -16,6 +16,7 @@ pt-BR:
       register_cuisine: 'Criar uma Cozinha'
       register_recipe_type: 'Criar um Tipo de Receita'      
       edit_recipe: 'Editar esta receita'
+      remove_recipe: 'Apagar Receita'      
       submit: 'Enviar'
       cancel: 'Cancelar'
     # Examples

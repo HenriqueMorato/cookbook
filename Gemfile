@@ -45,6 +45,7 @@ group :development, :test do
   gem 'capybara'
   gem 'factory_bot_rails'
   gem 'rubocop', require: false
+  gem 'poltergeist'
 end
 
 group :test do

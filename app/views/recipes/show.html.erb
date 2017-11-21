@@ -2,5 +2,6 @@
 
 <% if @recipe.user == current_user %>
   <%= link_to t('simple_form.buttons.edit_recipe'), edit_recipe_path %>
+  <%= link_to t('simple_form.buttons.remove_recipe'), @recipe, method: :delete, data: { confirm: "Are you sure?" } %>
 <% end %>
 <%= link_to t('simple_form.back'), root_path %>

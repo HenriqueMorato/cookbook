@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 feature 'User remove recipe' do
-  scenario 'sucessfully', driver: :selenium do
+  scenario 'sucessfully' do
     user = create(:user, email: 'test@cookbook.com')
-    recipe = create(:recipe, user: user)
+    recipe = create(:recipe, user: user, title: 'Bolo de fubá')
 
     visit root_path
     within 'nav' do
@@ -15,6 +15,9 @@ feature 'User remove recipe' do
       click_on 'Entrar' 
     end
     click_on recipe.title
-    click_on 'Apagar receita'
+    click_on 'Apagar Receita'
+
+    expect(current_path).to eq root_path
+    expect(page).to have_content('Receita apagada com sucesso.')    
   end
 end

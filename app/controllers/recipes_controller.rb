@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: %i[show edit update]
-  before_action :authenticate_user!, only: %i[new create edit update]
-  before_action :recipe_own_by_user, only: %i[edit update]
+  before_action :set_recipe, only: %i[show edit update destroy]
+  before_action :authenticate_user!, except: %i[show]
+  before_action :recipe_own_by_user, only: %i[edit update destroy]
 
   def show; end
 
@@ -32,6 +32,11 @@ class RecipesController < ApplicationController
       recipe_load
       render :edit
     end
+  end
+
+  def destroy
+    @recipe.destroy
+    redirect_to root_path, alert: 'Receita apagada com sucesso.'
   end
 
   private
