@@ -1,7 +1,7 @@
 class RecipeTypesController < ApplicationController
   before_action :set_recipe_type, only: %i[show]
   before_action :authenticate_user!, except: %i[show]
-  before_action :redirect_unless_admin, except: [:show]  
+  before_action :redirect_unless_admin, except: [:show]
 
   def show; end
 
@@ -30,10 +30,9 @@ class RecipeTypesController < ApplicationController
   end
 
   def redirect_unless_admin
-    unless current_user.admin?
-      redirect_to root_path, alert: 'Acesso Negado, você 
-                                     não possui permissão para 
-                                     executar esta ação' 
-    end  
+    return if current_user.admin?
+    redirect_to root_path, alert: 'Acesso Negado, você '\
+                                  'não possui permissão para '\
+                                  'executar esta ação'
   end
 end

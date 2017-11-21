@@ -29,10 +29,9 @@ class CuisinesController < ApplicationController
   end
 
   def redirect_unless_admin
-    unless current_user.admin?
-      redirect_to root_path, alert: 'Acesso Negado, você 
-                                     não possui permissão para 
-                                     executar esta ação' 
-    end  
+    return if current_user.admin?
+    redirect_to root_path, alert: 'Acesso Negado, você '\
+                                    'não possui permissão para '\
+                                    'executar esta ação'
   end
 end

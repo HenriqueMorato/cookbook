@@ -22,7 +22,7 @@ class RecipesController < ApplicationController
   end
 
   def edit
-      recipe_load
+    recipe_load
   end
 
   def update
@@ -37,9 +37,9 @@ class RecipesController < ApplicationController
   private
 
   def recipe_own_by_user
-    unless @recipe.user == current_user
-      redirect_to root_path, alert: 'Acesso Negado, você não é o criador desta receita'
-    end
+    return if @recipe.user == current_user
+    redirect_to root_path, alert: 'Acesso Negado, você não é o '\
+                                  'criador desta receita'
   end
 
   def set_recipe
