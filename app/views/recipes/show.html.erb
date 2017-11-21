@@ -1,4 +1,6 @@
 <%= render @recipe %>
 
-<%= link_to t('simple_form.buttons.edit_recipe'), edit_recipe_path %>
+<% if @recipe.user == current_user %>
+  <%= link_to t('simple_form.buttons.edit_recipe'), edit_recipe_path %>
+<% end %>
 <%= link_to t('simple_form.back'), root_path %>

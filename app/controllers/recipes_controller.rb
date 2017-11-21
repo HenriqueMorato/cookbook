@@ -1,36 +1,46 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[show edit update]
+  before_action :authenticate_user!, only: %i[new create edit update]
+  before_action :recipe_own_by_user, only: %i[edit update]
+
   def show; end
 
   def new
-    recipe_eager_load
+    recipe_load
     @recipe = Recipe.new
   end
 
   def create
     @recipe = Recipe.new(recipe_params)
+    @recipe.user = current_user
     if @recipe.save
       redirect_to @recipe
     else
-      recipe_eager_load
+      recipe_load
       render :new
     end
   end
 
   def edit
-    recipe_eager_load
+      recipe_load
   end
 
   def update
     if @recipe.update(recipe_params)
       redirect_to @recipe
     else
-      recipe_eager_load
+      recipe_load
       render :edit
     end
   end
 
   private
+
+  def recipe_own_by_user
+    unless @recipe.user == current_user
+      redirect_to root_path, alert: 'Acesso Negado, você não é o criador desta receita'
+    end
+  end
 
   def set_recipe
     @recipe = Recipe.find(params[:id])
@@ -43,7 +53,7 @@ class RecipesController < ApplicationController
                                    :cook_method)
   end
 
-  def recipe_eager_load
+  def recipe_load
     @recipe_types = RecipeType.all
     @cuisines = Cuisine.all
   end

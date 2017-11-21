@@ -9,6 +9,42 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <%= link_to 'My Cookbook', root_path, class: 'navbar-brand' %>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <% if user_signed_in? %>
+                <li class="nav-item">
+                  <%= link_to t('simple_form.buttons.register_recipe'), new_recipe_path, class: "nav-link" %>
+                </li>
+                <% if current_user.role == 'admin' %>
+                  <li class="nav-item">
+                    <%= link_to t('simple_form.buttons.register_cuisine'), new_cuisine_path, class: "nav-link" %>                    
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to t('simple_form.buttons.register_recipe_type'), new_recipe_type_path, class: "nav-link" %>
+                  </li>
+                <% end %>
+                <li class="nav-item">
+                  <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: "nav-link" %>
+                </li>
+              <% else %>
+                <li class="nav-item">
+                  <%= link_to t("devise.registrations.sign_up"), 
+                    new_user_registration_path, class: "nav-link" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to t("devise.sessions.sign_in"), 
+                      new_user_session_path, class: "nav-link" %>
+                  </li>
+                <% end %>
+            </ul>
+        </div>
+    </nav>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

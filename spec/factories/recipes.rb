@@ -8,5 +8,6 @@ FactoryBot.define do
     
     recipe_type
     cuisine
+    user
   end
 end

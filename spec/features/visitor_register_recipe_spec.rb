@@ -7,8 +7,17 @@ feature 'Visitor register recipe' do
     create(:recipe_type, name: 'Entrada')
     create(:recipe_type, name: 'Prato Principal')
     create(:recipe_type, name: 'Sobremesa')
+    create(:user, email: 'test@cookbook.com')
 
     visit root_path
+    within 'nav' do
+      click_on 'Entrar'
+    end
+    fill_in 'Email', with: 'test@cookbook.com'
+    fill_in 'Senha', with: '123456'
+    within 'div.form-actions' do
+      click_on 'Entrar' 
+    end   
     click_on 'Enviar uma receita'
 
     fill_in 'Título', with: 'Tabule'
@@ -34,7 +43,17 @@ feature 'Visitor register recipe' do
   end
 
   scenario 'and must fill in all fields' do
+    create(:user, email: 'test@cookbook.com')
+    
     visit root_path
+    within 'nav' do
+      click_on 'Entrar'
+    end
+    fill_in 'Email', with: 'test@cookbook.com'
+    fill_in 'Senha', with: '123456'
+    within 'div.form-actions' do
+      click_on 'Entrar' 
+    end
     click_on 'Enviar uma receita'
 
     fill_in 'Título', with: ''
