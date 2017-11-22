@@ -1,8 +1,12 @@
 language: ruby
 script:
+  - bundle exec rspec
   - bundle exec rubocop
 rvm:
   - 2.3.4
+env:
+  global:
+    - CC_TEST_REPORTER_ID=c213212a7eec62881a4f0ce10418f900c8ee877696925a07f8da2a797a31fc29
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter

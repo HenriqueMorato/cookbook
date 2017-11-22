@@ -1,5 +1,7 @@
 FactoryBot.define do
   factory :cuisine do
-    name "MyString"
+    sequence :name do |n|
+      "MyString#{n}"
+    end
   end
 end

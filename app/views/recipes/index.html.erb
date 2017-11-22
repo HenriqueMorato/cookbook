@@ -1,0 +1,9 @@
+<% if @recipes.any? %>
+  <% @recipes.each do |recipe| %>
+    <%= render partial: "recipes/recipe_link", locals: {recipe: recipe} %>
+  <% end %>
+<% else %>
+  <p class="lead">
+    Nenhuma receita encontrada
+  </p>
+<% end %>

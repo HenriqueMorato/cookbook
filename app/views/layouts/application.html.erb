@@ -39,11 +39,23 @@
                   </li>
                 <% end %>
             </ul>
+            <%= form_tag(recipes_path, method: :get, class: 'form-inline mt-2 mt-md-0') do %>
+              <%= text_field_tag :title, nil, placeholder: 'Pesquisar Receita', class: 'form-control mr-sm-2', id: 'search_recipes' %>
+              <%= submit_tag 'Buscar', class: 'btn btn-outline-secondary my-2 my-sm-0' %>
+            <% end %>
         </div>
     </nav>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <div class="container">
+      <% if notice %>
+        <div class="alert alert-info">
+          <%= notice %>
+        </div>
+      <% end %>
+      <% if alert %>
+        <div class="alert alert-danger">
+          <%= alert %>
+        </div>
+      <% end %>
       <%= yield %>
     </div>
   </body>
