@@ -1,12 +1,12 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: %i[show edit update destroy]
+  before_action :set_recipe, only: %i[show edit update destroy favorite]
   before_action :authenticate_user!, except: %i[show index]
   before_action :recipe_own_by_user, only: %i[edit update destroy]
 
   def index
     @recipes = Recipe.where('title LIKE ?', "%#{params[:title]}%")
   end
-  
+
   def show; end
 
   def new
@@ -36,6 +36,11 @@ class RecipesController < ApplicationController
       recipe_load
       render :edit
     end
+  end
+
+  def favorite
+    redirect_to recipe_path(@recipe), notice: 'Receita colocada com '\
+                                             'sucesso nos favoritos'
   end
 
   def destroy

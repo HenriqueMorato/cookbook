@@ -1,3 +1,7 @@
+<% if current_user %>
+  <%= link_to  "Favoritar", favorite_recipe_path, method: :post %>
+<% end %>
+
 <%= render @recipe %>
 
 <% if @recipe.user == current_user %>
