@@ -8,6 +8,11 @@ class Recipe < ApplicationRecord
   validates :title, :recipe_type, :cuisine, :difficulty, :cook_time,
             :ingredients, :cook_method, presence: true
 
+  has_attached_file :photo, styles: { main: '300x300>', thumb: '100x100>' },
+                            default_url: '/assets/missing_:style.png'
+
+  validates_attachment_content_type :photo, content_type: %r{\Aimage\/.*\z}
+
   def cook_time_min
     "#{cook_time} minutos"
   end
