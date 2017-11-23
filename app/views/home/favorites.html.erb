@@ -1,0 +1,10 @@
+<h3>Minhas receitas favoritas</h3>
+<% if @favorite_recipes.any? %>
+<% @favorite_recipes.each do |recipe| %>
+  <%= render partial: "recipes/recipe_link", locals: {recipe: recipe} %>
+<% end %>
+<% else %>
+<p class="lead">
+  Você ainda não tem nenhuma receita nos seus favoritos
+</p>
+<% end %>

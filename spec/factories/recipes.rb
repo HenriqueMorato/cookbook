@@ -1,6 +1,8 @@
 FactoryBot.define do
   factory :recipe do
-    title "MyString"
+    sequence :title do |n|
+      "Feijoada #{n}"    
+    end
     difficulty "MyString"
     cook_time 1
     ingredients 'MyString'

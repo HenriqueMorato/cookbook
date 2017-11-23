@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: %i[show edit update destroy favorite]
+  before_action :set_recipe, except: %i[index new create]
   before_action :authenticate_user!, except: %i[show index]
   before_action :recipe_own_by_user, only: %i[edit update destroy]
 
@@ -39,8 +39,15 @@ class RecipesController < ApplicationController
   end
 
   def favorite
+    current_user.favorites << @recipe
     redirect_to recipe_path(@recipe), notice: 'Receita colocada com '\
-                                             'sucesso nos favoritos'
+                                              'sucesso nos favoritos'
+  end
+
+  def unfavorite
+    current_user.favorites.delete @recipe
+    redirect_to recipe_path(@recipe), notice: 'Receita removida com '\
+                                              'sucesso dos favoritos'
   end
 
   def destroy

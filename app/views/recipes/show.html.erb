@@ -1,5 +1,13 @@
-<% if current_user %>
-  <%= link_to  "Favoritar", favorite_recipe_path, method: :post %>
+<% if user_signed_in? %>
+  <% if !current_user.favorites.exists? @recipe.id %>
+    <%= link_to favorite_recipe_path, method: :post, id: 'favorite' do %>
+      <%= fa_icon 'star-o 3x' %>
+    <% end %>
+  <% else %>
+    <%= link_to unfavorite_recipe_path, method: :post, id: 'unfavorite' do %>
+      <%= fa_icon 'star 3x' %>
+    <% end %>
+  <% end %>
 <% end %>
 
 <%= render @recipe %>

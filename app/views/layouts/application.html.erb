@@ -17,6 +17,9 @@
                 <li class="nav-item">
                   <%= link_to t('simple_form.buttons.register_recipe'), new_recipe_path, class: "nav-link" %>
                 </li>
+                <li class="nav-item">
+                  <%= link_to 'Minhas Receitas Favoritas', favorite_recipes_path, class: "nav-link" %>
+                </li>
                 <% if current_user.role == 'admin' %>
                   <li class="nav-item">
                     <%= link_to t('simple_form.buttons.register_cuisine'), new_cuisine_path, class: "nav-link" %>                    

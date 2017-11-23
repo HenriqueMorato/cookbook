@@ -1,5 +1,11 @@
 @import "bootstrap";
+@import "font-awesome";
 
 .container {
     padding-top: 10px;
+}
+
+i.fa-star,
+i.fa-star-o {
+    color: yellow;
 }
