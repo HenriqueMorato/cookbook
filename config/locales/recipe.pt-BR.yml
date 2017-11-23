@@ -11,3 +11,11 @@ pt-BR:
         cook_time: 'Tempo de Preparo'
         ingredients: 'Ingredientes'
         cook_method: 'Como Preparar'
+        photo: 'Foto da Receita'
+        photo_content_type: 'Tipo da imagem'
+    errors:
+      models:
+        recipe:
+          attributes:
+            photo:
+              spoofed_media_type: 'Não possui permissão para realizar esta ação'

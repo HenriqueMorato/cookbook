@@ -9,5 +9,6 @@
 <%= f.input :cook_time %>
 <%= f.input :ingredients %>
 <%= f.input :cook_method %>
-<%= f.submit t('simple_form.buttons.submit') %>
+<%= f.input :photo, as: :file %>
+<%= f.submit t('simple_form.buttons.submit'), class: 'btn btn-primary' %>
 <% end %>
