@@ -1,5 +1,5 @@
-FROM ruby:2.3.4
-MAINTAINER Henrique
+FROM ruby:2.5.1
+MAINTAINER Henrique Morato
 
 ENV NODE_VERSION 8
 RUN curl -sL https://deb.nodesource.com/setup_$NODE_VERSION.x | bash -
@@ -22,6 +22,7 @@ RUN mkdir -p /cookbook
 WORKDIR /cookbook
 ADD Gemfile Gemfile
 ADD Gemfile.lock Gemfile.lock
+RUN echo "gem: --no-ri --no-rdoc" >> ~/.gemrc
 RUN gem install bundler
 RUN bundle install
 RUN gem install bundler-audit
