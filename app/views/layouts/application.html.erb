@@ -9,45 +9,44 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">    
-        <%= link_to 'My Cookbook', root_path, class: 'navbar-brand' %>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <% if user_signed_in? %>
-                <li class="nav-item">
-                  <%= link_to t('simple_form.buttons.register_recipe'), new_recipe_path, class: "nav-link" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to 'Minhas Receitas Favoritas', favorite_recipes_path, class: "nav-link" %>
-                </li>
-                <% if current_user.role == 'admin' %>
-                  <li class="nav-item">
-                    <%= link_to t('simple_form.buttons.register_cuisine'), new_cuisine_path, class: "nav-link" %>                    
-                  </li>
-                  <li class="nav-item">
-                    <%= link_to t('simple_form.buttons.register_recipe_type'), new_recipe_type_path, class: "nav-link" %>
-                  </li>
-                <% end %>
-                <li class="nav-item">
-                  <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: "nav-link" %>
-                </li>
-              <% else %>
-                <li class="nav-item">
-                  <%= link_to t("devise.registrations.sign_up"), 
-                    new_user_registration_path, class: "nav-link" %>
-                  </li>
-                  <li class="nav-item">
-                    <%= link_to t("devise.sessions.sign_in"), 
-                      new_user_session_path, class: "nav-link" %>
-                  </li>
-                <% end %>
-            </ul>
-            <%= form_tag(recipes_path, method: :get, class: 'form-inline mt-2 mt-md-0') do %>
-              <%= text_field_tag :title, nil, placeholder: 'Pesquisar Receita', class: 'form-control mr-sm-2', id: 'search_recipes' %>
-              <%= submit_tag 'Buscar', class: 'btn btn-outline-secondary my-2 my-sm-0' %>
+    <div class="header">
+      <div class="container">
+        <%= render 'shared/nav_header_top' %>
+        <%= render 'shared/nav_menu' %>
+      </div>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to t('simple_form.buttons.register_recipe'), new_recipe_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Minhas Receitas Favoritas', favorite_recipes_path, class: "nav-link" %>
+            </li>
+            <% if current_user.role == 'admin' %>
+              <li class="nav-item">
+                <%= link_to t('simple_form.buttons.register_cuisine'), new_cuisine_path, class: "nav-link" %>                    
+              </li>
+              <li class="nav-item">
+                <%= link_to t('simple_form.buttons.register_recipe_type'), new_recipe_type_path, class: "nav-link" %>
+              </li>
             <% end %>
-        </div>
-    </nav>
+            <li class="nav-item">
+              <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: "nav-link" %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to t("devise.registrations.sign_up"), 
+                new_user_registration_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to t("devise.sessions.sign_in"), 
+                new_user_session_path, class: "nav-link" %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
     <div class="container">
       <% if notice %>
         <div class="alert alert-info">

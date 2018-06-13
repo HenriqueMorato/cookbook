@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="col-md-4 col-sm-12 mt-auto mb-auto">
+    <%= link_to root_path do %>
+      <div class="logo">
+        <%= image_tag 'cookbook.png', class: 'img-responsive' %>
+        <h1>My Cookbook</h1>
+        <p><strong>O seu livro de receitas online</strong></p>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-md-8 col-sm-12">
+    <nav class="navbar navbar-default navbar-expand-md navbar-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler01" aria-controls="navbarToggler01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="navbar-collapse collapse" id="navbarToggler01">
+        <ul class="navbar-nav">
+          <li>
+            <%= link_to root_path do %>
+              <%= image_tag 'nav/nav1.jpg', class: 'img-responsive', alt: 'Home' %>
+              Home
+            <% end %>
+          </li>
+          <li>
+            <%= link_to root_path do %>
+              <%= image_tag 'nav/nav2.jpg', class: 'img-responsive', alt: 'Home' %>
+              Receitas
+            <% end %>
+          </li>
+          <li>
+            <%= link_to root_path do %>
+              <%= image_tag 'nav/nav3.jpg', class: 'img-responsive', alt: 'Home' %>
+              Favoritos
+            <% end %>
+          </li>
+          <li>
+            <%= link_to root_path do %>
+              <%= image_tag 'nav/nav4.jpg', class: 'img-responsive', alt: 'Home' %>
+              Cozinhas
+            <% end %>
+          </li>
+          <li>
+            <%= link_to root_path do %>
+              <%= image_tag 'nav/nav5.jpg', class: 'img-responsive', alt: 'Home' %>
+              Tipos de Receita
+            <% end %>
+          </li>
+          <li>
+            <%= link_to root_path do %>
+              <%= image_tag 'nav/nav6.jpg', class: 'img-responsive', alt: 'Home' %>
+              Sobre
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>
