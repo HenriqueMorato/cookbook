@@ -54,6 +54,7 @@ end
 
 group :test do
   gem 'simplecov'
+  gem 'selenium-webdriver', '~>2.53'
 end
 
 group :development do

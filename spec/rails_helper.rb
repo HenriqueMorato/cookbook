@@ -31,6 +31,17 @@ RSpec.configure do |config|
   config.include Warden::Test::Helpers
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
+session = Capybara::Session.new(:selenium_chrome)
+
+RSpec.configure do |config|
+  config.before(:each) { @session = session }
+end
+
+
+Capybara.configure do |config|
+  config.default_max_wait_time = 10
+  config.default_driver        = :selenium
+end
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
