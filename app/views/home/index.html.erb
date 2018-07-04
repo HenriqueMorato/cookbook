@@ -1,9 +1,22 @@
-<h1>CookBook</h1>
-<p>Bem-vindo ao maior livro de receitas online</p>
+
+<div class="heading">
+  <%= image_tag 'crown.png' %>
+  <h1>Receitas Favoritas</h1>
+  <p>Conheça as receitas mais queridas dos usuários do nosso site.</p>
+  <hr/>
+</div>
+<div class="row">
+  <% @recipes.each do |recipe| %>
+    <%= render partial: "recipes/recipe_link", locals: {recipe: recipe} %>
+  <% end %>
+</div>
+<hr class="full-line" />
+<div class="heading">
+  <%= image_tag 'crown.png' %>
+  <h1>Menu</h1>
+  <p>Que tal escolher uma categoria para cozinhar hoje?</p>
+  <hr/>
+</div>
 
 <%= render @cuisines %>
 <%= render @recipe_types %>
-
-<% @recipes.each do |recipe| %>
-  <%= render partial: "recipes/recipe_link", locals: {recipe: recipe} %>
-<% end %>

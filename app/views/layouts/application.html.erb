@@ -25,7 +25,7 @@
             </li>
             <% if current_user.role == 'admin' %>
               <li class="nav-item">
-                <%= link_to t('simple_form.buttons.register_cuisine'), new_cuisine_path, class: "nav-link" %>                    
+                <%= link_to t('simple_form.buttons.register_cuisine'), new_cuisine_path, class: "nav-link" %>
               </li>
               <li class="nav-item">
                 <%= link_to t('simple_form.buttons.register_recipe_type'), new_recipe_type_path, class: "nav-link" %>
@@ -36,29 +36,29 @@
             </li>
           <% else %>
             <li class="nav-item">
-              <%= link_to t("devise.registrations.sign_up"), 
+              <%= link_to t("devise.registrations.sign_up"),
                 new_user_registration_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
-              <%= link_to t("devise.sessions.sign_in"), 
+              <%= link_to t("devise.sessions.sign_in"),
                 new_user_session_path, class: "nav-link" %>
             </li>
           <% end %>
         </ul>
       </div>
     </div>
+    <% if notice %>
+      <div class="alert alert-info">
+        <%= notice %>
+      </div>
+    <% end %>
+    <% if alert %>
+      <div class="alert alert-danger">
+        <%= alert %>
+      </div>
+    <% end %>
+    <%= render 'shared/carousel' %>
     <div class="container">
-      <% if notice %>
-        <div class="alert alert-info">
-          <%= notice %>
-        </div>
-      <% end %>
-      <% if alert %>
-        <div class="alert alert-danger">
-          <%= alert %>
-        </div>
-      <% end %>
-      <%= render 'shared/carousel' %>
       <%= yield %>
     </div>
   </body>
